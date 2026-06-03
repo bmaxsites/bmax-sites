@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>B-Max Sites | Criação de Sites Profissionais</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+/* 🌄 FUNDO REALISTA (montanha tech) */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2000&q=80");
+
+background-size:cover;
+background-position:center;
+
+z-index:-2;
+}
+
+/* brilho azul profissional */
+body::after{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:
+radial-gradient(circle at top left, rgba(0,102,255,0.35), transparent 40%),
+radial-gradient(circle at bottom right, rgba(0,200,255,0.25), transparent 45%);
+
+z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+
+backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.35);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+font-weight:800;
+font-size:1.5rem;
+}
+
+.logo span{
+color:#00aaff;
+}
+
+.menu{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+.menu a:hover{
+color:#00aaff;
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px;
+}
+
+.hero h1{
+font-size:3.5rem;
+line-height:1.1;
+margin-bottom:20px;
+
+background:linear-gradient(90deg,#fff,#7cc0ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+color:#d1d5db;
+margin-bottom:30px;
+}
+
+/* BOTÕES */
+.buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+background:#0066ff;
+padding:14px 28px;
+border-radius:12px;
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 25px rgba(0,102,255,0.4);
+transition:.3s;
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 0 40px rgba(0,102,255,0.7);
+}
+
+.btn-secondary{
+padding:14px 28px;
+border:1px solid rgba(255,255,255,0.2);
+border-radius:12px;
+color:white;
+text-decoration:none;
+backdrop-filter:blur(10px);
+}
+
+.section{
+padding:100px 10%;
+text-align:center;
+}
+
+.section h2{
+font-size:2.5rem;
+margin-bottom:20px;
+}
+
+.section p{
+color:#cbd5e1;
+max-width:800px;
+margin:auto;
+}
+
+/* CARDS */
+.cards{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#00aaff;
+}
+
+/* STATS */
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:80px 10%;
+}
+
+.stat{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+text-align:center;
+min-width:160px;
+}
+
+.stat h3{
+font-size:2.5rem;
+color:#00aaff;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid rgba(255,255,255,0.1);
+color:#94a3b8;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">B-Max <span>Sites</span></div>
+
+<ul class="menu">
+<li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="inicio">
+<div>
+
+<h1>Transformamos sua presença digital em clientes reais</h1>
+
+<p>Sites modernos, rápidos e profissionais para empresas que querem crescer.</p>
+
+<div class="buttons">
+<a class="btn-primary" href="https://wa.me/5549998095175">WhatsApp</a>
+<a class="btn-secondary" href="mailto:bmaxsitesoficial@gmail.com">E-mail</a>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="sobre">
+<h2>Sobre a B-Max Sites</h2>
+<p>Criamos sites modernos e focados em conversão, ajudando empresas a vender mais e se destacar online.</p>
+</section>
+
+<section class="section" id="servicos">
+<h2>Serviços</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Sites Empresariais</h3>
+<p>Presença profissional na internet.</p>
+</div>
+
+<div class="card">
+<h3>Landing Pages</h3>
+<p>Foco total em vendas.</p>
+</div>
+
+<div class="card">
+<h3>Lojas Virtuais</h3>
+<p>Venda seus produtos online.</p>
+</div>
+
+<div class="card">
+<h3>Manutenção</h3>
+<p>Suporte contínuo.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+<div class="stat">
+<h3>100+</h3>
+<p>Projetos</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Suporte</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Responsivo</p>
+</div>
+</section>
+
+<section class="section" id="contato">
+<h2>Contato</h2>
+
+<div class="buttons">
+<a class="btn-primary" href="https://wa.me/5549998095175">WhatsApp</a>
+<a class="btn-secondary" href="mailto:bmaxsitesoficial@gmail.com">E-mail</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 B-Max Sites - Todos os direitos reservados
+</footer>
+
+</body>
+</html>
