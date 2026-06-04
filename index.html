@@ -96,54 +96,12 @@ text-align:center;
 padding:120px 20px;
 }
 
-.hero h1{
-font-size:3.5rem;
-line-height:1.1;
-margin-bottom:20px;
-background:linear-gradient(90deg,#fff,#7cc0ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero p{ color:#d1d5db; margin-bottom:30px; }
-
-.buttons{ display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
-
-.btn-primary{
-background:#0066ff;
-padding:14px 28px;
-border-radius:12px;
-color:white;
-text-decoration:none;
-font-weight:600;
-}
-
-.btn-secondary{
-padding:14px 28px;
-border:1px solid rgba(255,255,255,0.2);
-border-radius:12px;
-color:white;
-text-decoration:none;
-}
-
 /* SECTIONS */
 .section{
 padding:100px 10%;
 text-align:center;
 }
 
-.section h2{
-font-size:2.5rem;
-margin-bottom:20px;
-}
-
-.section p{
-color:#cbd5e1;
-max-width:800px;
-margin:auto;
-}
-
-/* CARDS */
 .cards{
 margin-top:50px;
 display:grid;
@@ -158,7 +116,6 @@ padding:25px;
 border-radius:18px;
 }
 
-/* STATS */
 .stats{
 display:flex;
 justify-content:center;
@@ -177,7 +134,6 @@ min-width:160px;
 
 .stat h3{ font-size:2.5rem; color:#00aaff; }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
@@ -185,22 +141,20 @@ border-top:1px solid rgba(255,255,255,0.1);
 color:#94a3b8;
 }
 
-/* 🔐 LOGIN PREMIUM */
+/* 🔥 LOGIN BLUR PROFISSIONAL */
 #login{
 position:fixed;
 inset:0;
 display:flex;
 align-items:center;
 justify-content:center;
-
 background:rgba(0,0,0,0.6);
 backdrop-filter:blur(25px);
-
 z-index:9999;
 }
 
 .login-box{
-background:rgba(0,0,0,0.9);
+background:rgba(0,0,0,0.92);
 padding:40px;
 border-radius:18px;
 text-align:center;
@@ -216,7 +170,6 @@ margin-bottom:10px;
 .login-box p{
 color:#94a3b8;
 margin-bottom:20px;
-font-size:14px;
 }
 
 .login-box button{
@@ -224,10 +177,11 @@ width:100%;
 padding:12px;
 border:none;
 border-radius:10px;
-background:white;
-color:black;
+background:#fff;
+color:#000;
 font-weight:bold;
 cursor:pointer;
+transition:.3s;
 }
 
 .login-box button:hover{
@@ -239,11 +193,11 @@ transform:scale(1.05);
 
 <body>
 
-<!-- 🔐 LOGIN OBRIGATÓRIO -->
+<!-- 🔐 LOGIN -->
 <div id="login">
   <div class="login-box">
     <h2>🔐 Acesso obrigatório</h2>
-    <p>Entre com Google para acessar o site</p>
+    <p>Entre com Google para continuar</p>
     <button onclick="loginGoogle()">Entrar com Google</button>
   </div>
 </div>
@@ -251,6 +205,7 @@ transform:scale(1.05);
 <!-- SITE -->
 <nav class="navbar">
 <div class="logo">B-Max <span>Sites</span></div>
+
 <ul class="menu">
 <li><a href="#inicio">Início</a></li>
 <li><a href="#sobre">Sobre</a></li>
@@ -260,15 +215,7 @@ transform:scale(1.05);
 </nav>
 
 <section class="hero" id="inicio">
-<div>
 <h1>Transformamos sua presença digital em clientes reais</h1>
-<p>Sites modernos, rápidos e profissionais para empresas que querem crescer.</p>
-
-<div class="buttons">
-<a class="btn-primary" href="https://wa.me/5549998095175">WhatsApp</a>
-<a class="btn-secondary" href="mailto:bmaxsitesoficial@gmail.com">E-mail</a>
-</div>
-</div>
 </section>
 
 <section class="section" id="sobre">
@@ -278,12 +225,11 @@ transform:scale(1.05);
 
 <section class="section" id="servicos">
 <h2>Serviços</h2>
-
 <div class="cards">
-<div class="card"><h3>Sites</h3><p>Profissionais</p></div>
-<div class="card"><h3>Landing</h3><p>Conversão</p></div>
-<div class="card"><h3>Lojas</h3><p>E-commerce</p></div>
-<div class="card"><h3>Suporte</h3><p>24/7</p></div>
+<div class="card">Sites</div>
+<div class="card">Landing Pages</div>
+<div class="card">Lojas</div>
+<div class="card">Suporte</div>
 </div>
 </section>
 
@@ -293,27 +239,15 @@ transform:scale(1.05);
 <div class="stat"><h3>100%</h3><p>Responsivo</p></div>
 </section>
 
-<section class="section" id="contato">
-<h2>Contato</h2>
-<div class="buttons">
-<a class="btn-primary" href="https://wa.me/5549998095175">WhatsApp</a>
-<a class="btn-secondary" href="mailto:bmaxsitesoficial@gmail.com">E-mail</a>
-</div>
-</section>
-
 <footer>
 © 2026 B-Max Sites
 </footer>
 
-<!-- 🔥 FIREBASE LOGIN -->
+<!-- 🔥 FIREBASE (GOOGLE LOGIN) -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import {
-getAuth,
-GoogleAuthProvider,
-signInWithPopup,
-onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 const firebaseConfig = {
 apiKey: "AIzaSyBNh85moGmG7oyoXUUTr43-kmKpfIe4xCM",
@@ -329,17 +263,21 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 window.loginGoogle = async () => {
-await signInWithPopup(auth, provider);
+  try {
+    await signInWithPopup(auth, provider);
+  } catch (e) {
+    alert(e.message);
+  }
 };
 
 onAuthStateChanged(auth, (user) => {
-if(user){
-document.getElementById("login").style.display = "none";
-document.body.style.overflow = "auto";
-}else{
-document.getElementById("login").style.display = "flex";
-document.body.style.overflow = "hidden";
-}
+  if(user){
+    document.getElementById("login").style.display = "none";
+    document.body.style.overflow = "auto";
+  } else {
+    document.getElementById("login").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
 });
 </script>
 
