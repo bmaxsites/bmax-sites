@@ -1,95 +1,93 @@
-// REVELAR ELEMENTOS AO ROLAR
+// ===============================
+// 🔥 REVELAR ELEMENTOS AO ROLAR
+// ===============================
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
             entry.target.classList.add("show");
         }
-
     });
-},{
-    threshold:0.15
+}, {
+    threshold: 0.15
 });
 
-document.querySelectorAll(".card, .stat, .section")
-.forEach((el)=>{
-    el.classList.add("hidden");
-    observer.observe(el);
+window.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".card, .stat, .section");
+
+    elements.forEach((el) => {
+        el.classList.add("hidden");
+        observer.observe(el);
+    });
 });
 
 
-// CONTADORES
+// ===============================
+// 🔢 CONTADOR ANIMADO
+// ===============================
 
-const stats = document.querySelectorAll(".stat h3");
+function animateCounters() {
+    const stats = document.querySelectorAll(".stat h3");
 
-stats.forEach(stat => {
+    stats.forEach((stat) => {
+        const text = stat.innerText;
 
-    const text = stat.innerText;
+        if (!text.includes("+")) return;
 
-    if(text.includes("+")){
-
-        const target = parseInt(text);
+        const target = parseInt(text.replace(/\D/g, ""));
+        if (isNaN(target)) return;
 
         let count = 0;
+        const speed = Math.max(1, target / 100);
 
-        const speed = target / 100;
-
-        const update = () => {
-
+        function update() {
             count += speed;
 
-            if(count < target){
-
-                stat.innerText =
-                Math.floor(count) + "+";
-
+            if (count < target) {
+                stat.innerText = Math.floor(count) + "+";
                 requestAnimationFrame(update);
-
-            }else{
-
-                stat.innerText =
-                target + "+";
+            } else {
+                stat.innerText = target + "+";
             }
         }
 
         update();
-    }
+    });
+}
+
+
+// ===============================
+// 🧭 NAVBAR DINÂMICA
+// ===============================
+
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".navbar");
+    if (!navbar) return;
+
+    navbar.style.background =
+        window.scrollY > 100
+            ? "rgba(5,8,22,.95)"
+            : "rgba(5,8,22,.65)";
 });
 
 
-// NAVBAR TRANSPARENTE
+// ===============================
+// 🌄 PARALLAX (SE HERO EXISTIR)
+// ===============================
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
+    const hero = document.querySelector(".hero");
+    if (!hero) return;
 
-    const navbar =
-    document.querySelector(".navbar");
-
-    if(window.scrollY > 100){
-
-        navbar.style.background =
-        "rgba(5,8,22,.95)";
-
-    }else{
-
-        navbar.style.background =
-        "rgba(5,8,22,.65)";
-    }
-
+    const offset = window.pageYOffset;
+    hero.style.backgroundPositionY = offset * 0.3 + "px";
 });
 
 
-// EFEITO PARALLAX SUAVE
+// ===============================
+// 🚀 INICIALIZAÇÃO SEGURA
+// ===============================
 
-window.addEventListener("scroll",()=>{
-
-    const hero =
-    document.querySelector(".hero");
-
-    const offset =
-    window.pageYOffset;
-
-    hero.style.backgroundPositionY =
-    offset * 0.3 + "px";
-
+window.addEventListener("load", () => {
+    animateCounters();
 });
