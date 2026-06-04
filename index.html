@@ -24,7 +24,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FUNDO ORIGINAL (NÃO MEXIDO) */
+/* FUNDO */
 body::before{
 content:"";
 position:fixed;
@@ -102,8 +102,6 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:120px 20px;
-position:relative;
-z-index:1;
 }
 
 .hero h1{
@@ -149,8 +147,6 @@ text-decoration:none;
 .section{
 padding:100px 10%;
 text-align:center;
-position:relative;
-z-index:1;
 }
 
 .section h2{
@@ -186,8 +182,6 @@ justify-content:center;
 gap:40px;
 flex-wrap:wrap;
 padding:80px 10%;
-position:relative;
-z-index:1;
 }
 
 .stat{
@@ -208,77 +202,46 @@ text-align:center;
 padding:30px;
 border-top:1px solid rgba(255,255,255,0.1);
 color:#94a3b8;
-position:relative;
-z-index:1;
 }
 
-/* 🔐 LOGIN PREMIUM */
+/* LOGIN */
 #login-screen{
 position:fixed;
 inset:0;
-
 display:flex;
 align-items:center;
 justify-content:center;
 
-background:rgba(0,0,0,0.65);
-backdrop-filter:blur(18px);
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(15px);
 
-z-index:999999;
-
-transition:0.5s ease;
+z-index:9999;
 }
 
 .login-box{
-width:340px;
-padding:40px;
+width:320px;
+padding:35px;
 
-background:rgba(0,0,0,0.92);
-
+background:rgba(0,0,0,0.9);
 border:1px solid rgba(255,255,255,0.15);
-border-radius:16px;
+border-radius:15px;
 
 text-align:center;
-
-box-shadow:
-0 0 25px rgba(255,255,255,0.08),
-inset 0 0 20px rgba(255,255,255,0.04);
-
-animation:popIn 0.6s ease;
-}
-
-@keyframes popIn{
-from{
-transform:scale(0.85);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
 }
 
 .login-box h2{
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .input-group{
 display:flex;
 align-items:center;
-
 margin:12px 0;
 padding:12px;
 
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
 border-radius:10px;
-
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.icon{
-color:#000;
-margin-right:10px;
-filter:brightness(0);
 }
 
 .input-group input{
@@ -291,24 +254,26 @@ color:white;
 
 .login-box button{
 width:100%;
-margin-top:18px;
+margin-top:15px;
 padding:12px;
 
 border:none;
 border-radius:10px;
 
-background:linear-gradient(90deg,#fff,#cfcfcf);
-color:#000;
-
+background:#0066ff;
+color:white;
 font-weight:bold;
 cursor:pointer;
-
-transition:0.3s;
 }
 
 .login-box button:hover{
-transform:translateY(-2px);
-box-shadow:0 0 18px rgba(255,255,255,0.25);
+background:#0052cc;
+}
+
+#error{
+color:#ff4d4d;
+font-size:14px;
+margin-top:10px;
 }
 
 </style>
@@ -316,20 +281,20 @@ box-shadow:0 0 18px rgba(255,255,255,0.25);
 
 <body>
 
-<!-- 🔐 LOGIN APENAS COLOQUE SEU NOME E UMA SENHA SEGURA-->
+<!-- LOGIN -->
 <div id="login-screen">
   <div class="login-box">
-    <h2> COLOQUE SEU NOME E UMA SENHA</h2>
+    <h2>Login B-Max</h2>
 
     <div class="input-group">
-      <span class="icon">👤</span>
-      <input type="text" placeholder="Usuário">
+      <input id="user" type="text" placeholder="Usuário">
     </div>
 
     <div class="input-group">
-      <span class="icon">🔑</span>
-      <input type="password" placeholder="Senha">
+      <input id="pass" type="password" placeholder="Senha">
     </div>
+
+    <p id="error"></p>
 
     <button onclick="login()">Entrar</button>
   </div>
@@ -396,12 +361,22 @@ box-shadow:0 0 18px rgba(255,255,255,0.25);
 
 <script>
 function login(){
-document.getElementById("login-screen").style.opacity="0";
-document.getElementById("login-screen").style.transform="scale(1.1)";
 
-setTimeout(()=>{
-document.getElementById("login-screen").style.display="none";
-},500);
+const user = document.getElementById("user").value;
+const pass = document.getElementById("pass").value;
+const error = document.getElementById("error");
+
+if(user.trim() === "" || pass.trim() === ""){
+error.innerText = "Preencha todos os campos!";
+return;
+}
+
+if(user.length < 3 || pass.length < 3){
+error.innerText = "Dados inválidos!";
+return;
+}
+
+document.getElementById("login-screen").style.display = "none";
 }
 </script>
 
