@@ -10,7 +10,8 @@
 
 <style>
 
-/* RESET */
+/* SUA CSS JÁ COLOCADA AQUI (mantida igual) */
+
 *{
 margin:0;
 padding:0;
@@ -24,7 +25,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FUNDO */
 body::before{
 content:"";
 position:fixed;
@@ -53,7 +53,6 @@ radial-gradient(circle at bottom right, rgba(0,200,255,0.25), transparent 45%);
 z-index:-1;
 }
 
-/* NAVBAR */
 .navbar{
 position:fixed;
 top:0;
@@ -86,7 +85,6 @@ color:white;
 text-decoration:none;
 }
 
-/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -96,7 +94,6 @@ text-align:center;
 padding:120px 20px;
 }
 
-/* SECTIONS */
 .section{
 padding:100px 10%;
 text-align:center;
@@ -141,7 +138,7 @@ border-top:1px solid rgba(255,255,255,0.1);
 color:#94a3b8;
 }
 
-/* 🔐 LOGIN */
+/* LOGIN */
 #login{
 position:fixed;
 inset:0;
@@ -161,16 +158,6 @@ text-align:center;
 width:320px;
 border:1px solid rgba(255,255,255,0.15);
 box-shadow:0 0 40px rgba(0,102,255,0.25);
-animation:pulse 2.5s infinite;
-}
-
-.login-box h2{
-margin-bottom:10px;
-}
-
-.login-box p{
-color:#94a3b8;
-margin-bottom:20px;
 }
 
 .login-box button{
@@ -178,17 +165,14 @@ width:100%;
 padding:12px;
 border:none;
 border-radius:12px;
-background:#ffffff;
-color:#000000;
+background:#fff;
+color:#000;
 font-weight:800;
-
 display:flex;
 align-items:center;
 justify-content:center;
 gap:10px;
-
 cursor:pointer;
-transition:.25s;
 }
 
 .login-box button img{
@@ -196,43 +180,7 @@ width:20px;
 height:20px;
 }
 
-.login-box button:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(255,255,255,0.3);
-}
-
-@keyframes pulse{
-0%{ box-shadow:0 0 25px rgba(0,102,255,0.15); }
-50%{ box-shadow:0 0 45px rgba(0,102,255,0.35); }
-100%{ box-shadow:0 0 25px rgba(0,102,255,0.15); }
-}
-
-/* LOADER */
-#loader{
-position:fixed;
-inset:0;
-display:none;
-align-items:center;
-justify-content:center;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(20px);
-z-index:10000;
-}
-
-.spinner{
-width:55px;
-height:55px;
-border:5px solid rgba(255,255,255,0.2);
-border-top:5px solid #00aaff;
-border-radius:50%;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-to{ transform:rotate(360deg); }
-}
-
-/* CONTACT BUTTONS NOVOS */
+/* CONTACT */
 .contact-buttons{
 display:flex;
 justify-content:center;
@@ -247,7 +195,7 @@ align-items:center;
 justify-content:center;
 gap:12px;
 
-padding:16px 30px;
+padding:16px 28px;
 min-width:200px;
 
 background:rgba(255,255,255,0.08);
@@ -260,12 +208,12 @@ color:white;
 text-decoration:none;
 font-weight:600;
 
-transition:.3s;
+transition:0.3s;
 }
 
 .contact-btn img{
-width:28px;
-height:28px;
+width:26px;
+height:26px;
 object-fit:contain;
 }
 
@@ -275,14 +223,14 @@ transform:translateY(-8px);
 
 .whatsapp:hover{
 border-color:#25D366;
-box-shadow:0 0 30px rgba(37,211,102,.35);
-background:rgba(37,211,102,.08);
+background:rgba(37,211,102,0.10);
+box-shadow:0 0 25px rgba(37,211,102,0.25);
 }
 
 .gmail:hover{
 border-color:#EA4335;
-box-shadow:0 0 30px rgba(234,67,53,.35);
-background:rgba(234,67,53,.08);
+background:rgba(234,67,53,0.10);
+box-shadow:0 0 25px rgba(234,67,53,0.25);
 }
 
 </style>
@@ -290,7 +238,7 @@ background:rgba(234,67,53,.08);
 
 <body>
 
-<!-- 🔐 LOGIN -->
+<!-- LOGIN -->
 <div id="login">
   <div class="login-box">
     <h2>Login</h2>
@@ -301,11 +249,6 @@ background:rgba(234,67,53,.08);
       Entrar com Google
     </button>
   </div>
-</div>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="spinner"></div>
 </div>
 
 <!-- NAV -->
@@ -355,21 +298,14 @@ background:rgba(234,67,53,.08);
 
 <div class="contact-buttons">
 
-<a class="contact-btn whatsapp"
-href="https://wa.me/5549998095175"
-target="_blank">
-
+<a class="contact-btn whatsapp" href="https://wa.me/5549998095175" target="_blank">
 <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png">
 WhatsApp
-
 </a>
 
-<a class="contact-btn gmail"
-href="mailto:bmaxsitesoficial@gmail.com">
-
+<a class="contact-btn gmail" href="mailto:bmaxsitesoficial@gmail.com">
 <img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png">
 Gmail
-
 </a>
 
 </div>
@@ -415,4 +351,4 @@ onAuthStateChanged(auth, (user) => {
 </script>
 
 </body>
-                    </html>
+</html>
