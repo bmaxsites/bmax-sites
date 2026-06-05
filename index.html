@@ -173,7 +173,6 @@ color:#94a3b8;
 margin-bottom:20px;
 }
 
-/* BOTÃO GOOGLE PREMIUM */
 .login-box button{
 width:100%;
 padding:12px;
@@ -202,7 +201,6 @@ transform:scale(1.05);
 box-shadow:0 0 25px rgba(255,255,255,0.3);
 }
 
-/* PULSE ANIMATION */
 @keyframes pulse{
 0%{ box-shadow:0 0 25px rgba(0,102,255,0.15); }
 50%{ box-shadow:0 0 45px rgba(0,102,255,0.35); }
@@ -234,6 +232,59 @@ animation:spin 1s linear infinite;
 to{ transform:rotate(360deg); }
 }
 
+/* CONTACT BUTTONS NOVOS */
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.contact-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+
+padding:16px 30px;
+min-width:200px;
+
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:18px;
+
+backdrop-filter:blur(20px);
+
+color:white;
+text-decoration:none;
+font-weight:600;
+
+transition:.3s;
+}
+
+.contact-btn img{
+width:28px;
+height:28px;
+object-fit:contain;
+}
+
+.contact-btn:hover{
+transform:translateY(-8px);
+}
+
+.whatsapp:hover{
+border-color:#25D366;
+box-shadow:0 0 30px rgba(37,211,102,.35);
+background:rgba(37,211,102,.08);
+}
+
+.gmail:hover{
+border-color:#EA4335;
+box-shadow:0 0 30px rgba(234,67,53,.35);
+background:rgba(234,67,53,.08);
+}
+
 </style>
 </head>
 
@@ -257,7 +308,7 @@ to{ transform:rotate(360deg); }
   <div class="spinner"></div>
 </div>
 
-<!-- SITE -->
+<!-- NAV -->
 <nav class="navbar">
 <div class="logo">B-Max <span>Sites</span></div>
 
@@ -269,15 +320,18 @@ to{ transform:rotate(360deg); }
 </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
 <h1>Transformamos sua presença digital em clientes reais</h1>
 </section>
 
+<!-- SOBRE -->
 <section class="section" id="sobre">
 <h2>Sobre a B-Max Sites</h2>
 <p>Criamos sites modernos e focados em conversão.</p>
 </section>
 
+<!-- SERVIÇOS -->
 <section class="section" id="servicos">
 <h2>Serviços</h2>
 <div class="cards">
@@ -288,21 +342,40 @@ to{ transform:rotate(360deg); }
 </div>
 </section>
 
+<!-- STATS -->
 <section class="stats">
 <div class="stat"><h3>100+</h3><p>Projetos</p></div>
 <div class="stat"><h3>24/7</h3><p>Suporte</p></div>
 <div class="stat"><h3>100%</h3><p>Responsivo</p></div>
 </section>
 
+<!-- CONTATO -->
 <section class="section" id="contato">
 <h2>Contato</h2>
 
-<a href="https://wa.me/5549998095175" target="_blank">WhatsApp</a>
-<br><br>
-<a href="mailto:bmaxsitesoficial@gmail.com">Gmail</a>
+<div class="contact-buttons">
 
+<a class="contact-btn whatsapp"
+href="https://wa.me/5549998095175"
+target="_blank">
+
+<img src="https://cdn-icons-png.flaticon.com/512/220/220236.png">
+WhatsApp
+
+</a>
+
+<a class="contact-btn gmail"
+href="mailto:bmaxsitesoficial@gmail.com">
+
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968534.png">
+Gmail
+
+</a>
+
+</div>
 </section>
 
+<!-- FOOTER -->
 <footer>
 © 2026 B-Max Sites
 </footer>
@@ -326,31 +399,20 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const loginBox = document.getElementById("login");
-const loader = document.getElementById("loader");
-
 window.loginGoogle = async () => {
-  loader.style.display = "flex";
-
-  try {
-    await signInWithPopup(auth, provider);
-  } catch (e) {
-    console.error(e);
-  }
-
-  loader.style.display = "none";
+  await signInWithPopup(auth, provider);
 };
 
 onAuthStateChanged(auth, (user) => {
   if(user){
-    loginBox.style.display = "none";
+    document.getElementById("login").style.display = "none";
     document.body.style.overflow = "auto";
   } else {
-    loginBox.style.display = "flex";
+    document.getElementById("login").style.display = "flex";
     document.body.style.overflow = "hidden";
   }
 });
 </script>
 
 </body>
-</html>
+                    </html>
