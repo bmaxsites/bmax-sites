@@ -6,13 +6,11 @@
 
 <title>B-Max Sites | Criação de Sites Profissionais</title>
 
-<!-- SEO -->
 <meta name="description" content="B-Max Sites - Criação de sites profissionais, landing pages e soluções digitais para empresas.">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="assets/logo.png">
 
-<!-- Open Graph (WhatsApp / Instagram / Facebook) -->
+<!-- WhatsApp / Instagram / Facebook -->
 <meta property="og:title" content="B-Max Sites">
 <meta property="og:description" content="Transformamos sua presença digital em clientes reais.">
 <meta property="og:image" content="assets/logo.png">
@@ -28,7 +26,7 @@
 
 <style>
 
-/* BASE */
+/* RESET */
 *{
 margin:0;
 padding:0;
@@ -85,10 +83,13 @@ border-bottom:1px solid rgba(255,255,255,0.1);
 z-index:1;
 }
 
-.logo img{
-height:45px;
-width:auto;
-display:block;
+.logo{
+font-weight:800;
+font-size:1.4rem;
+}
+
+.logo span{
+color:#00aaff;
 }
 
 .menu{
@@ -134,7 +135,6 @@ padding:18px 28px;
 border-radius:18px;
 cursor:pointer;
 font-weight:700;
-color:white;
 backdrop-filter:blur(20px);
 animation:float 3s ease-in-out infinite;
 }
@@ -201,13 +201,8 @@ transition:0.3s;
 transform:translateY(-8px);
 }
 
-.whatsapp:hover{
-border-color:#25D366;
-}
-
-.gmail:hover{
-border-color:#EA4335;
-}
+.whatsapp:hover{border-color:#25D366;}
+.gmail:hover{border-color:#EA4335;}
 
 /* LOGIN */
 #login{
@@ -256,7 +251,7 @@ cursor:pointer;
 <!-- NAV -->
 <nav class="navbar">
   <div class="logo">
-    <img src="assets/logo.png" alt="B-Max Sites">
+    B-Max <span>Sites</span>
   </div>
 
   <ul class="menu">
@@ -269,47 +264,49 @@ cursor:pointer;
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <h1>Transformamos sua presença digital em clientes reais</h1>
+<h1>Transformamos sua presença digital em clientes reais</h1>
 </section>
 
 <!-- SOBRE -->
 <section class="section" id="sobre">
-  <h2>Sobre a B-Max Sites</h2>
-  <p>Sites modernos e focados em conversão.</p>
+<h2>Sobre a B-Max Sites</h2>
+<p>Sites modernos e focados em conversão.</p>
 </section>
 
 <!-- SERVIÇOS -->
 <section class="section" id="servicos">
-  <h2>Serviços</h2>
-  <div class="cards">
-    <div class="card">Sites</div>
-    <div class="card">Landing Pages</div>
-    <div class="card">Lojas</div>
-    <div class="card">Suporte</div>
-  </div>
+<h2>Serviços</h2>
+
+<div class="cards">
+<div class="card">Sites</div>
+<div class="card">Landing Pages</div>
+<div class="card">Lojas</div>
+<div class="card">Suporte</div>
+</div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-  <div class="stat"><h3>100+</h3><p>Projetos</p></div>
-  <div class="stat"><h3>24/7</h3><p>Suporte</p></div>
-  <div class="stat"><h3>100%</h3><p>Responsivo</p></div>
+<div class="stat"><h3>100+</h3><p>Projetos</p></div>
+<div class="stat"><h3>24/7</h3><p>Suporte</p></div>
+<div class="stat"><h3>100%</h3><p>Responsivo</p></div>
 </section>
 
 <!-- CONTATO -->
 <section class="section" id="contato">
-  <h2>Contato</h2>
+<h2>Contato</h2>
 
-  <div class="contact-buttons">
-    <a class="contact-btn whatsapp" href="https://wa.me/5549998095175">WhatsApp</a>
-    <a class="contact-btn gmail" href="mailto:bmaxsitesoficial@gmail.com">Gmail</a>
-  </div>
+<div class="contact-buttons">
+<a class="contact-btn whatsapp" href="https://wa.me/5549998095175">WhatsApp</a>
+<a class="contact-btn gmail" href="mailto:bmaxsitesoficial@gmail.com">Gmail</a>
+</div>
 </section>
 
 <footer style="text-align:center;padding:30px;color:#aaa;">
 © 2026 B-Max Sites
 </footer>
 
+<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } 
@@ -333,13 +330,9 @@ window.loginGoogle = async () => {
 };
 
 onAuthStateChanged(auth, (user) => {
-  if(user){
-    document.getElementById("login").style.display = "none";
-  } else {
-    document.getElementById("login").style.display = "flex";
-  }
+  document.getElementById("login").style.display = user ? "none" : "flex";
 });
 </script>
 
 </body>
-  </html>
+</html>
